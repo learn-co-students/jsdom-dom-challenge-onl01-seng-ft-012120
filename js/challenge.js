@@ -42,6 +42,19 @@ const ul = document.getElementsByClassName("likes")[0]
 likes.addEventListener("click", function() {
     let li = document.createElement("li");
     li.innerText = "Like";
+    li.setAttribute("id", counter.innerText);
     ul.appendChild(li)
+});
 
+const comments = document.getElementById("list");
+const comment = document.getElementById("comment-form");
+const commentBox = document.getElementById("comment-input");
+const submit = document.getElementById("submit")
+
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+    newComment = document.createElement("p");
+    newComment.innerText = commentBox.value;
+    commentBox.value = "";
+    comments.appendChild(newComment);
 });
