@@ -5,7 +5,9 @@
     let minus = document.querySelector("#minus");
     let heart = document.querySelector("#heart");
     let likes = document.querySelector(".likes");
-
+    let commentForm = document.querySelector("#comment-form");
+    let comment = document.querySelector("#comment-input");
+    let comments = document.querySelector("#list");
     // set timeout is only for one execution, use set interval to repeat
     function startCounter() {
          window.setInterval(function(){counter.innerText++;}, 1000);
@@ -92,6 +94,17 @@
             e.target.innerText = "resume";
             disableButtons(true);
         }
+    })
+    let ul = document.createElement('ul');
+    comments.appendChild(ul);
+    document.addEventListener("DOMContentLoaded", () => {
+        commentForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            let item = document.createElement('li');
+            ul.appendChild(item);
+            item.innerHTML = comment.value;
+
+        })
     })
    
     // setInterval(()=>{counter.innerText = parseInt(counter.innerText) + 1}, 1000);
